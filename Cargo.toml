@@ -1,0 +1,26 @@
+[package]
+name = "line_cleaner"
+version = "0.1.0"
+edition = "2021"
+
+
+
+[dependencies]
+regex = "1.7"           
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+
+# Burn and related crates for training.
+# Note: We include only one definition of `burn` here with the desired features.
+burn = { version = "0.16.0", default-features = false, features = ["train", "std", "metrics"] }
+burn-derive = "0.16.0"
+burn-autodiff = "0.16.0"
+burn-tensor = "0.16.0"
+burn-ndarray = "0.16.0"
+burn-dataset = "0.16.0"
+
+# For async and HTTP (for later integration, e.g. with Ollama).
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12.12", features = ["json", "stream"] }
+futures-util = "0.3"
